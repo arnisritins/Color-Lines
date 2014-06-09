@@ -1,0 +1,143 @@
+body{
+	margin:0;
+	padding:25px;
+	font-family:Arial;
+	font-size:14px;
+}
+
+/* Forecast */
+.forecast{
+	width:120px;
+	height:40px;
+	margin:0 auto;
+}
+
+.forecast div{
+	position:relative;
+	width:40px;
+	height:40px;
+	float:left;
+}
+
+.forecast div:before{
+	content:"";
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:30px;
+	height:30px;
+	border-radius:100px;
+}
+
+
+/* Grid */
+.grid{
+	margin:25px auto;
+	position:relative;
+	width:450px;
+	height:450px;
+}
+
+.grid div{
+	position:absolute;
+	width:50px;
+	height:50px;
+	box-sizing:border-box;
+	background:#ddd;
+	border:2px outset #ccc;
+}
+
+.grid div:before{
+	content:"";
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:36px;
+	height:36px;
+	box-sizing:border-box;
+	border-radius:100px;
+}
+
+.grid .ball{cursor:pointer;}
+.empty:before{background:transparent;}
+
+
+/* Ball colors */
+.red:before{
+	background: rgb(255,0,0);
+	background: radial-gradient(ellipse at center, rgb(255,77,77) 0%, rgb(255,0,0) 100%);
+}
+
+.blue:before{
+	background: rgb(0,0,255);
+	background: radial-gradient(ellipse at center, rgb(77,77,255) 0%, rgb(0,0,255) 100%);
+}
+
+.green:before{
+	background: rgb(0,128,0);
+	background: radial-gradient(ellipse at center, rgb(77,166,77) 0%, rgb(0,128,0) 100%);
+}
+
+.yellow:before{
+	background: rgb(255,255,0);
+	background: radial-gradient(ellipse at center, rgb(255,255,77) 0%, rgb(255,255,0) 100%);
+}
+
+.brown:before{
+	background: rgb(165,42,42);
+	background: radial-gradient(ellipse at center, rgb(192,106,106) 0%, rgb(165,42,42) 100%);	
+}
+
+.cyan:before{
+	background: rgb(0,255,255);
+	background: radial-gradient(ellipse at center, rgb(77,255,255) 0%, rgb(0,255,255) 100%);	
+}
+
+.magenta:before{
+	background: rgb(255,0,255);
+	background: radial-gradient(ellipse at center, rgb(255,77,255) 0%, rgb(255,0,255) 100%);
+}
+
+
+/* Ball effects */
+.ball.fadein:before{-webkit-animation:fadein 0.3s; animation:fadein 0.3s;}
+.ball.fadeout:before{-webkit-animation:fadeout 0.3s; animation:fadeout 0.3s;}
+
+@-webkit-keyframes fadein{
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+
+@keyframes fadein{
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeout{
+	0% {opacity:1;}
+	100% {opacity:0;}
+}
+
+@keyframes fadeout{
+	0% {opacity:1;}
+	100% {opacity:0;}
+}
+
+.ball.selected:before{
+	-webkit-animation:jumping 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	animation:jumping 0.5s;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes jumping{
+	0% {top:5px;}
+	50% {top:9px;}
+	100% {top:3px;}
+}
+
+@keyframes jumping{
+	0% {top:5px;}
+	50% {top:9px;}
+	100% {top:3px;}
+}
